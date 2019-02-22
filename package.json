@@ -1,0 +1,31 @@
+{
+  "name": "onboarding-bot",
+  "version": "1.0.0",
+  "description": "slack bot for onboarding new team members",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibipro/onboarding-bot.git"
+  },
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "author": "Alex Witkowski and Luke Shumaker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sibipro/onboarding-bot/issues"
+  },
+  "homepage": "https://github.com/sibipro/onboarding-bot#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.14"
+  }
+}
