@@ -2,21 +2,36 @@
 module.exports = function(app) {
   var onboarding = require('../controllers/onboardingController');
 
-  // onboarding Routes
-  app.route('/events/newuser')
-    .post(onboarding.welcome);
+  app.post('/events/department', (req, res) => {
+      res.send({
+          
+      })
+  });
 
+  app.post('/events/department/dev', (req, res) => {
+    res.send({
+        "title" : "",
+        "body" : "Welcome to the developer team!"
+    })
+  });
 
-  app.route('/events/department')
-    .post(onboarding.list_teams)
+app.post('/events/department/design', (req, res) => {
+    res.send({
+        "title" : "",
+        "body" : "Welcome to the design team!"
+    })
+});
 
-  app.route('/events/department/dev')
-    .post(onboarding.start_dev)
+app.post('/events/department/vendor', (req, res) => {
+    res.send({
+        "title" : "",
+        "body" : "Welcome to the vendor management team!"
+    })
+});
 
-    app.route('/events/department/design')
-    .post(onboarding.start_design)
-
-    app.route('/events/department/vendormgmt')
-    .post(onboarding.start_vendor)
-    
+app.post('/events/department/', (req, res) => {
+    res.send({
+        //json goes here
+    })
+});
 };
