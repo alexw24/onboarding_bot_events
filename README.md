@@ -18,3 +18,11 @@ This slackbot will prompt the user with choices, and offer responses based on th
 * VS Code
 * ESLint & Prettier
 
+`Design`
+* Trello
+* Figma
+* Docs that Rico is preparing for new design recruits
+
+`Vendor Management`
+* MS Office
+* Docs on how we operate, our vendors and manufacturers, etc.
