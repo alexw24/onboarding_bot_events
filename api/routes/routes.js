@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(app) {
-  var onboarding = require('../controllers/onboardingController');
+  var onboarding = require('../controllers/controller');
 
   app.post('/events/department', (req, res) => {
       res.send({
