@@ -1,0 +1,26 @@
+# Default values for node.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  pullPolicy: IfNotPresent
+service:
+  name: node
+  type: ClusterIP
+  externalPort: 8080
+  internalPort: 8080
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+ingress:
+  enabled: true
+# Domain to apply to ingress resource
+rdomain: onboardbot-api.sibipro.net
+# Git commit hash
+gitCommit: 7ad15a12b0168a26a55f36840d67d40abd2d0125 
+# Rollback limit definied by number of saved config maps
+revisionHistoryLimit: 5
