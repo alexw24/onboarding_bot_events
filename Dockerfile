@@ -16,4 +16,4 @@ COPY . .
 # Remove auth file from final image. 
 RUN rm -f .npmrc
 
-CMD ["nodemon", "server.js"]
+CMD ["npm", "server.js"]

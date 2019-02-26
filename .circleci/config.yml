@@ -1,0 +1,109 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+
+references:
+  checkout_backup_key: &checkout_backup_key checkout-cache-
+  checkout_cache_key: &checkout_cache_key checkout-cache-{{ .Branch }}-{{ .Revision }}
+  dependency_backup_key: &dependency_backup_key dependency-cache-
+  dependency_cache_key: &dependency_cache_key dependency-cache-{{ checksum "package-lock.json" }}
+  workspace_root: &workspace_root ~/api-gateway
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+executors:
+  nodejs:
+    docker:
+      - image: circleci/node:dubnium
+    working_directory: ~/onboard-slackbot
+ 
+jobs:
+## --------------------------------------
+  checkout_code:
+    executor: nodejs
+    steps:
+      - checkout
+      - save_cache:
+          key: *checkout_cache_key
+          paths:
+            - .
+## --------------------------------------          
+  dependencies:
+    executor: nodejs
+    steps:
+      - restore_cache:
+          keys:
+            - *checkout_cache_key
+            - *checkout_backup_key
+      - run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      - run:
+          name: Install Node Modules
+          command: npm i --no-progress
+      - save_cache:
+          key: *dependency_cache_key
+          paths:
+            - node_modules
+## --------------------------------------
+# lint:
+#   executor: nodejs
+#   steps:
+#     - restore_cache:
+#         keys:
+#           - *checkout_cache_key
+#           - *checkout_backup_key
+#     - restore_cache:
+#         keys:
+#           - *dependency_cache_key
+#           - *dependency_backup_key
+#     - run: npm run lint
+## --------------------------------------
+#  test:
+#    executor: nodejs
+#    steps:
+#      - restore_cache:
+#          keys:
+#            - *checkout_cache_key
+#            - *checkout_backup_key
+#      - restore_cache:
+#          keys:
+#            - *dependency_cache_key
+#            - *dependency_backup_key
+#      - run: npm t
+## --------------------------------------
+  deploy_dev:
+    executor: nodejs
+    steps:
+      - run: ssh -oStrictHostKeyChecking=no $EC2DEPLOYER 'sudo su -c "/projects/deploy.sh onboarding_bot_events" - root'
+
+workflows:
+  version: 2
+  # Runs JavaScript lint and flow checks.
+  # Currently will fail a PR if lint/flow raises issues.
+  default:
+    jobs:   
+      - checkout_code
+      - dependencies:
+          requires:
+            - checkout_code
+## --------------------------------------            
+#      - lint:
+#          requires:
+#            - dependencies
+## --------------------------------------            
+#      - test:
+#          requires:
+#            - lint
+## --------------------------------------            
+      - draft_deploy:
+          filters:
+            branches:
+              only: master
+          requires:
+            - dependencies
+
+
+
+

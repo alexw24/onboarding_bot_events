@@ -7,8 +7,8 @@ image:
 service:
   name: onboarding-slackbot
   type: ClusterIP
-  externalPort: 8080
-  internalPort: 8080
+  externalPort: 3000
+  internalPort: 3000
 resources:
   limits:
     cpu: 100m
