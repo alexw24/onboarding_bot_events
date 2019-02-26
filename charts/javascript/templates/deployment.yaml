@@ -25,9 +25,3 @@ spec:
         - containerPort: {{ .Values.service.internalPort }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}
-        env:
-          - name: ENV
-            valueFrom:
-              secretKeyRef:
-                key: env
-                name: onboarding-bot
