@@ -97,7 +97,7 @@ workflows:
 #          requires:
 #            - lint
 ## --------------------------------------            
-      - draft_deploy:
+      - deploy_dev:
           filters:
             branches:
               only: master
