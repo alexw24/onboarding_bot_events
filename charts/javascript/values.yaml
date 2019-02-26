@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
 service:
-  name: node
+  name: onboarding-slackbot
   type: ClusterIP
   externalPort: 8080
   internalPort: 8080
@@ -19,7 +19,7 @@ resources:
 ingress:
   enabled: true
 # Domain to apply to ingress resource
-rdomain: onboardbot-api.sibipro.net
+rdomain: "onboarding-slackbot.sibipro.net"
 # Git commit hash
 gitCommit: 7ad15a12b0168a26a55f36840d67d40abd2d0125 
 # Rollback limit definied by number of saved config maps

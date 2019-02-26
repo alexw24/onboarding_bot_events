@@ -16,7 +16,7 @@ spec:
   - hosts:
     - {{ .Values.rdomain }}
   rules:
-  - host: {{ .Release.Name }}.{{ .Values.basedomain }}
+  - host: {{ .Values.rdomain }}
     http:
       paths:
       - path: /
