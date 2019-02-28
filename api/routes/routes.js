@@ -44,11 +44,82 @@ module.exports = function(app) {
                     ]
                 }
             ]);
-        } else {
-          res.send({
-              "title" : "",
-              "body" : "not design"
-          });
+        }
+        if(val.value == 'backend') {
+            res.send([
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "*Welcome to the backend team!*  :construction:  :gear: \nHere's a list of members on the team:"
+                    }
+                },
+                {
+                    "type": "section",
+                    "fields": [
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@U9FUXJTST>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@UEQ5JKC93>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@U7ZDJFB7V>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@U94SVD6KG>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@U8ZCF7919>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@U7ZNELR2R>"
+                        }
+                    ]
+                }
+            ])
+        };
+        if (val.value == 'frontend') {
+            res.send([
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "*Welcome to the frontend team!* :crystal_ball: :mag: \nHere's a list of members on the team:"
+                    }
+                },
+                {
+                    "type": "section",
+                    "fields": [
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@U80J47279>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@UCG5QPK7X>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@UASE2P058>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@UGFK48WDN>"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "<@U96R0RAUC>"
+                        }
+                    ]
+                }
+            ])
         };
       })
 
