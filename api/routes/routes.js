@@ -124,61 +124,63 @@ module.exports = function(app) {
   });
 
   app.post('/events/department', (req, res) => {
-      res.send([
-        {
-            "type": "actions",
-            "elements": [
-                {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "Design",
-                        "emoji": true
-                    },
-                    "value": "design"
-                },
-                {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "Backend",
-                        "emoji": true
-                    },
-                    "value": "backend"
-                },
-                {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "Frontend",
-                        "emoji": true
-                    },
-                    "value": "frontend"
-                },
-                {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "Vendor management",
-                        "emoji": true
-                    },
-                    "value": "vendor"
-                }
-            ]
-        },
-        {
-            "type": "context",
-            "elements": [
-                {
-                    "type": "plain_text",
-                    "text": "Please select the team you'll be working with at SIBI.",
-                    "emoji": true
-                }
-            ]
-        }
-    ]
-      )
-  }); 
+      res.send({
+        "channel": req.body.user.id,
+        "blocks": [
+            {
+                  "type": "actions",
+                  "elements": [
+                      {
+                          "type": "button",
+                          "text": {
+                              "type": "plain_text",
+                              "text": "Design",
+                              "emoji": true
+                          },
+                          "value": "design"
+                      },
+                      {
+                          "type": "button",
+                          "text": {
+                              "type": "plain_text",
+                              "text": "Backend",
+                              "emoji": true
+                          },
+                          "value": "backend"
+                      },
+                      {
+                          "type": "button",
+                          "text": {
+                              "type": "plain_text",
+                              "text": "Frontend",
+                              "emoji": true
+                          },
+                          "value": "frontend"
+                      },
+                      {
+                          "type": "button",
+                          "text": {
+                              "type": "plain_text",
+                              "text": "Vendor management",
+                              "emoji": true
+                          },
+                          "value": "vendor"
+                      }
+                  ]
+              },
+              {
+                  "type": "context",
+                  "elements": [
+                      {
+                          "type": "plain_text",
+                          "text": "Please select the team you'll be working with at SIBI.",
+                          "emoji": true
+                      }
+                  ]
+              }
+        ]
+      });
+  });
 
   
 
