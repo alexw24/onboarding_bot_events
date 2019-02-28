@@ -1,7 +1,5 @@
 'use strict';
 module.exports = function(app) {
-  var onboarding = require('../controllers/controller');
-
 
   app.post('/events/actions', (req, res) => {
       req.body.actions.map(val => {
