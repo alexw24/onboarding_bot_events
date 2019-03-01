@@ -11,7 +11,7 @@ Many apps built using the Events API will follow the same abstract event-driven 
 
 ## Bot outline
 
-This slackbot will prompt the user with choices, and offer responses based on the choice. With this approach we get to define exactly what information new employees see based on their team.
+This slackbot will prompt the user with choices, and offer responses based on the choice. With this approach we get to define exactly what information new employees see based on their team. 
 
 `Dev`
 * Github
