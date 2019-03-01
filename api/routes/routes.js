@@ -187,6 +187,7 @@ module.exports = function(app) {
   
 
   app.post('/events/department/dev', (req, res) => {
+      console.log(req);
     res.send({
         "title" : "",
         "body" : "Welcome to the developer team!"
