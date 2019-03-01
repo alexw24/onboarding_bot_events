@@ -2,8 +2,9 @@
 module.exports = function(app) {
 
   app.post('/events/actions', (req, res) => {
+      console.log(req.body);
       req.body.actions.map(val => {
-        if(val.value == 'design') {
+        if(action == 'design') {
             res.send([
                 {
                     "type": "section",
@@ -126,7 +127,7 @@ module.exports = function(app) {
   app.post('/events/department', (req, res) => {
       console.log(req.body);
       res.send({
-        "channel": req.body.user.id,
+        "channel": user_id,
         "blocks": [
             {
                   "type": "actions",
@@ -186,6 +187,7 @@ module.exports = function(app) {
   
 
   app.post('/events/department/dev', (req, res) => {
+      console.log(req);
     res.send({
         "title" : "",
         "body" : "Welcome to the developer team!"
