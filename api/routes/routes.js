@@ -2,7 +2,7 @@
 module.exports = function(app) {
 
   app.post('/events/actions', (req, res) => {
-    console.log(req.body);
+      console.log(req);
       req.body.actions.map(val => {
         if(val.value == 'design') {
             res.send([
