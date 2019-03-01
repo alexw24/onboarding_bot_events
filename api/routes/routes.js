@@ -2,7 +2,6 @@
 module.exports = function(app) {
 
   app.post('/events/actions', (req, res) => {
-      console.log(req);
       req.body.actions.map(val => {
         if(val.value == 'design') {
             res.send([
@@ -125,6 +124,7 @@ module.exports = function(app) {
   });
 
   app.post('/events/department', (req, res) => {
+      console.log(req.body);
       res.send({
         "channel": req.body.user.id,
         "blocks": [
