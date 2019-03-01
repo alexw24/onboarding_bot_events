@@ -127,7 +127,7 @@ module.exports = function(app) {
   app.post('/events/department', (req, res) => {
       console.log(req.body);
       res.send({
-        "channel": user_id,
+        "channel": req.body.user_id,
         "blocks": [
             {
                   "type": "actions",
