@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.post('/events/actions', (req, res) => {
       console.log(req.body);
       req.body.actions.map(val => {
-        if(action == 'design') {
+        if(val.value == 'design') {
             res.send([
                 {
                     "type": "section",
@@ -41,6 +41,9 @@ module.exports = function(app) {
                             "text": "<@UAH5FKBTL>"
                         }
                     ]
+                },
+                {
+                    
                 }
             ]);
         }
@@ -127,7 +130,7 @@ module.exports = function(app) {
   app.post('/events/department', (req, res) => {
       console.log(req.body);
       res.send({
-        "channel": req.body.user_id,
+        "channel": user_id,
         "blocks": [
             {
                   "type": "actions",
@@ -214,3 +217,22 @@ app.post('/events/department/', (req, res) => {
     })
 });
 };
+
+{ type: 'block_actions',
+ team: { id: 'T0CAG', domain: 'acme-creamery' },
+ user: { id: 'U0CA5', username: 'Amy McGee', team_id: 'T3MDE' },
+ api_app_id: 'A0CA5',
+ token: 'Shh_its_a_seekrit',
+ container:
+  { type: 'message',
+    text:
+     'The contents of the original message where the action originated' },
+ trigger_id: '12466734323.1395872398',
+ response_url: 'https://www.postresponsestome.com/T123567/1509734234',
+ actions:
+  [ { type: 'button',
+      block_id: '1nI',
+      action_id: 'iCZ+',
+      text: [Object],
+      value: 'frontend',
+      action_ts: '1551297273.761228' } ] }
